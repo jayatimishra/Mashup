@@ -12,10 +12,10 @@ import threading
 
 
 
-API_KEY = "AIzaSyD8R7vLoHl_4fX8b9bg523kNGiEhDD5IaY"
+API_KEY = os.environ.get('API_KEY')
 
-print(os.environ.get('API_KEY'))
-print(os.environ)
+
+
 def search_and_get_video_ids(query, n=5,key=API_KEY):
     url = f'https://www.googleapis.com/youtube/v3/search?part=snippet&key={API_KEY}&type=video&q={query}&maxResults={n}'
     response = requests.get(url).json()
