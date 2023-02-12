@@ -67,8 +67,17 @@ def main(argv):
     print("Incorrect number of parameters. Please enter the correct number of parameters.")
     return
   singer_name = argv[0]
+  if singer_name == "":
+    print("Please enter a singer name.")
+    return
   number_of_videos = int(argv[1])
+  if number_of_videos<10:
+    print("Please enter a number greater than 10.")
+    return
   audio_duration = int(argv[2])
+  if audio_duration<20:
+    print("Please enter a number greater than 20.")
+    return
   output_file = argv[3]
   video_ids = search_and_get_video_ids(singer_name, number_of_videos, API_KEY)
   download_and_concatenate_audio(video_ids, number_of_videos, audio_duration)
