@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  jm-mashup:
+    platform: linux/amd64
+    image: jm-mashup
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "6000:6000"
+    environment:
+      - MAIL_PASSWORD = <PASSWORD>
+      - MAIL_USER = <EMAIL>
+      - API_KEY = <API_KEY>
