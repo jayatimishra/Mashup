@@ -81,7 +81,7 @@ def download_mp3(singer_name, number_vid, duration, customer_email):
     sender_email = USERNAME
     receiver_email = customer_email
     password = PASSWORD
-    message = f"""\Hi {customer_email}, \n\n Your audio file is ready. Please find the attachment. \n\n Regards, \n Jayati Mishra"""
+    message = f"""Hi {customer_email}, \n\n Your audio file is ready. Please find the attachment. \n\n Regards, \n Jayati Mishra"""
     server = smtplib.SMTP('smtp.gmail.com', 587)
     # attach the zip file to the email
     with open(f"{file_name}.zip", "rb") as attachment:
