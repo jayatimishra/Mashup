@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Form</title>
+    <style>
+      /* Add some styles to make it look beautiful */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      
+      form {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f2f2f2;
+        margin-top: 150px;
+
+        margin-left: 320px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ccc;
+      }
+      
+      label {
+        font-weight: bold;
+        margin-top: 10px;
+      }
+      
+      input[type="text"],
+      input[type="number"],
+      input[type="email"] {
+        width: 50%;
+        padding: 10px;
+        margin-top: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      
+      input[type="submit"] {
+        width: 50%;
+        padding: 10px;
+        margin-top: 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="post">
+      {{ form.hidden_tag }}
+      {{ form.singer_name.label }} {{ form.singer_name }}
+      {% for error in form.singer_name.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}<br>
+      {{ form.num_videos.label }} {{ form.num_videos }}
+      {% for error in form.num_videos.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}<br>
+      {{ form.duration.label }} {{ form.duration }}
+      {% for error in form.duration.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}<br>
+      {{ form.email.label }} {{ form.email }}
+      {% for error in form.email.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}<br>
+      <input type="submit" value="Submit">
+  </form>
+  </body>
+</html>
